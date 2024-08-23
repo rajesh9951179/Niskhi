@@ -1,10 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import footer_image from '../images/footer1_image.jpg';
+import footer_image from '../images/footer_image.jpg';
 const Footer = () => {
   const footerStyle = {
     background: `url(${footer_image}) no-repeat center center`, 
-    backgroundSize: 'cover',
+    backgroundSize: 'cover ',
   //  fontFamily: 'Comic Sans MS, cursive, sans-serif '
   fontFamily: 'Courier New, monospace'
   };
