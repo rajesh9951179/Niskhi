@@ -13,7 +13,8 @@ import ReadyToShip from './components/ReadyToShip';
 import SpecialPrice from './components/SpecialPrice';
 import Home from './components/Home';
 import Grids from './components/Grids';
-import VideoCarousel from './components/VideoCarousel'
+import VideoCarousel from './components/VideoCarousel';
+import Footer from './components/footer';
 function App() {
   return (
     <div>
@@ -33,6 +34,8 @@ function App() {
     <Home></Home>
     <Grids></Grids>
     <VideoCarousel></VideoCarousel>
+    <Footer/>
+    
     </div>
   );
 }
