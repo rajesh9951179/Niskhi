@@ -11,8 +11,12 @@ import Kids from './components/Kids';
 import Collection from './components/Collection';
 import ReadyToShip from './components/ReadyToShip';
 import SpecialPrice from './components/SpecialPrice';
+import Home from './components/Home';
+import Grids from './components/Grids';
+import VideoCarousel from './components/VideoCarousel'
 function App() {
   return (
+    <div>
     <Router>
       <NavBar />
       <Routes>
@@ -26,6 +30,10 @@ function App() {
         <Route path="/SpecialPrice" element={<SpecialPrice />} />
       </Routes>
     </Router>
+    <Home></Home>
+    <Grids></Grids>
+    <VideoCarousel></VideoCarousel>
+    </div>
   );
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Nav, NavDropdown, Container, Row, Col } from 'react-bootstrap';
 import { FaSearch, FaHeart, FaUser, FaShoppingBag } from 'react-icons/fa';
 import './Navbar.css';
-import logoMain from './images/logoMain.png';
+import logoMain from '../images/logoMain.png';
 import BestSeller from './BestSeller';
 import { LinkContainer } from 'react-router-bootstrap';
 const NavBar = () => {
