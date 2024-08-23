@@ -1,0 +1,32 @@
+/* NavBar.css */
+
+.bg-body-tertiary {
+    background-color: #f8f9fa;
+  }
+  .navi {
+   background-color: #d5d0cd;
+  }
+  .navbar-nav .nav-link {
+    color: #a57f6e;
+    font-weight: 500;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #343a40;
+  }
+  
+  .navbar-brand {
+    font-family: 'Serif', serif;
+    font-size: 1.5rem;
+    color: #a57f6e;
+  }
+  
+  .navbar-brand:hover {
+    color: #a57f6e;
+    text-decoration: none;
+  }
+  
+  .text-danger {
+    color: #dc3545 !important;
+  }
+  
