@@ -1,20 +1,37 @@
 import React from 'react';
+import  { useState } from 'react';
 import { Navbar, Nav, NavDropdown, Container, Row, Col } from 'react-bootstrap';
 import { FaSearch, FaHeart, FaUser, FaShoppingBag } from 'react-icons/fa';
 import './Navbar.css';
-import logoMain from './images/logoMain.png';
+import logoMain from '../images/logoMain.png';
 import BestSeller from './BestSeller';
 import { LinkContainer } from 'react-router-bootstrap';
 const NavBar = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  const handleToggle = () => {
+    setExpanded(!expanded);
+  };
+
+  const handleClose = () => {
+    setExpanded(false);
+  };
+
   return (
     <>
       {/* Top bar for the discount offer */}
-      <div className="text-center py-1" style={{ backgroundColor: '#c8a59d' }}>
+      <div className="text-center py-1 mr-0" style={{ backgroundColor: '#c8a59d' }}>
         <marquee>GET FLAT 10% OFF ON YOUR FIRST PURCHASE | USE CODE: BG10</marquee>
       </div>
 
-      <Navbar expand="lg" className="navi py-1">
-        <Container fluid>
+      <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg={expanded ? "transparent" : "light"} // Use transparent when expanded
+      variant="light"
+      className={`navi py-1 ${expanded ? "bg-transparent" : "bg-light"}`} // Apply classes based on expanded state
+    >
+      <Container fluid>
           <Navbar.Brand href="#home" className="d-flex align-items-center">
             <img
               src={logoMain}
