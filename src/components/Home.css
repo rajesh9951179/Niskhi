@@ -1,0 +1,13 @@
+/* Style for the arrows */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5); /* Background color for the icons */
+  background-size: 100%; /* Ensure icons cover the button */
+  border-radius: 50%;
+}
+.carousel-indicators [data-bs-target] {
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(3, 3, 3, 0.5);
+}
