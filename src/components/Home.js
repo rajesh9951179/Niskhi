@@ -6,9 +6,13 @@ import slider_3 from '../images/slider_3.jpg';
 import VideoCarousel from './VideoCarousel';
 import Grids from './Grids';
 import CategorySection from './Category';
+import NavBar from './Navbar';
+import Footer from './footer';
 
 function Home() {
   return (
+    <div>
+      <NavBar/>
     <div className="container-fluid p-0 m-0" style={{ overflowX: 'hidden', minHeight: '100vh' }}>
       {/* Category Section */}
       <div className="h-25 overflow-hidden" style={{ backgroundColor: '#d5d0cd', height: '25px' }}>
@@ -59,12 +63,16 @@ function Home() {
         </div>
       </div>
 
+      {/* Video Carousel */}
       <VideoCarousel />
+
+      {/* Grids Section */}
       <Grids />
-      
     </div>
-   
+    <Footer/>
+    </div>
   );
 }
 
 export default Home;
+

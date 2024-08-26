@@ -1,9 +1,10 @@
 import React from 'react'
+import BestSeller from './BestSeller'
 
 const SpecialPrice = () => {
   return (
     <div>
-      <h1>SpecialPrice</h1>
+      <BestSeller/>
     </div>
   )
 }
