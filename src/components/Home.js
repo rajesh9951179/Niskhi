@@ -3,11 +3,20 @@ import Carousel from 'react-bootstrap/Carousel';
 import slider_1 from '../images/slider_1.jpg';
 import slider_2 from '../images/slider_2.jpg';
 import slider_3 from '../images/slider_3.jpg';
+import VideoCarousel from './VideoCarousel';
+import Grids from './Grids';
+import CategorySection from './Category';
 
 function Home() {
   return (
-    <div className="container-fluid">
-      <div className="row">
+    <div className="container-fluid p-0 m-0" style={{ overflowX: 'hidden', minHeight: '100vh' }}>
+      {/* Category Section */}
+      <div className="h-25 overflow-hidden" style={{ backgroundColor: '#d5d0cd', height: '25px' }}>
+        <CategorySection />
+      </div>
+
+      {/* Image Carousel */}
+      <div className="row no-gutters">
         <div className="col-12">
           <Carousel fade>
             <Carousel.Item>
@@ -49,6 +58,12 @@ function Home() {
           </Carousel>
         </div>
       </div>
+
+      {/* Video Carousel */}
+      <VideoCarousel />
+
+      {/* Grids Section */}
+      <Grids />
     </div>
   );
 }

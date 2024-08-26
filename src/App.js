@@ -12,8 +12,6 @@ import Collection from './components/Collection';
 import ReadyToShip from './components/ReadyToShip';
 import SpecialPrice from './components/SpecialPrice';
 import Home from './components/Home';
-import Grids from './components/Grids';
-import VideoCarousel from './components/VideoCarousel';
 import Footer from './components/footer';
 function App() {
   return (
@@ -21,6 +19,7 @@ function App() {
     <Router>
       <NavBar />
       <Routes>
+        <Route path="/" element={<Home/>}/>
       <Route path="/NewArrivals" element={<NewArrivals />} />
         <Route path="/BestSeller" element={<BestSeller />} />
         <Route path="/Women" element={<Women />} />
@@ -30,11 +29,9 @@ function App() {
         <Route path="/ReadyToShip" element={<ReadyToShip />} />
         <Route path="/SpecialPrice" element={<SpecialPrice />} />
       </Routes>
+      <Footer/>
     </Router>
-    <Home></Home>
-    <Grids></Grids>
-    <VideoCarousel></VideoCarousel>
-    <Footer/>
+    
     
     </div>
   );
