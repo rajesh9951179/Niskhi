@@ -59,12 +59,11 @@ function Home() {
         </div>
       </div>
 
-      {/* Video Carousel */}
       <VideoCarousel />
-
-      {/* Grids Section */}
       <Grids />
+      
     </div>
+   
   );
 }
 
