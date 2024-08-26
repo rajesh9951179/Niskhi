@@ -22,7 +22,7 @@ const NavBar = () => {
 
       <Navbar expand="lg" className="navi py-1" expanded={expanded} onToggle={setExpanded}>
         <Container fluid>
-          <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
+          <Navbar.Brand as={Link} to="/Home" className="d-flex align-items-center">
             <img
               src={logoMain}
               height="60"
@@ -77,13 +77,13 @@ const NavBar = () => {
               </NavDropdown>
               <NavDropdown title="Kids" id="kids-dropdown">
               <LinkContainer to="/LehengaKids">
-                  <NavDropdown.Item onClick={handleToggleClose}>Lehenga</NavDropdown.Item>
+                  <NavDropdown.Item onClick={handleToggleClose}>Lehenga Kids</NavDropdown.Item>
                 </LinkContainer>
                 <LinkContainer to="/GhararaSets">
                   <NavDropdown.Item onClick={handleToggleClose}>Gharara Sets</NavDropdown.Item>
                 </LinkContainer>
                 <LinkContainer to="/KidsDresses">
-                  <NavDropdown.Item onClick={handleToggleClose}>Dresses</NavDropdown.Item>
+                  <NavDropdown.Item onClick={handleToggleClose}>Kids Dresses</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
               <LinkContainer to="/ReadyToShip">
@@ -95,13 +95,13 @@ const NavBar = () => {
             </Nav>
 
             <Nav className="flex-column flex-md-row">
-              <LinkContainer to="/search">
+              <LinkContainer to="/SlideoutSearchbox">
                 <Nav.Link onClick={handleToggleClose}><FaSearch /></Nav.Link>
               </LinkContainer>
               <LinkContainer to="/wishlist">
                 <Nav.Link onClick={handleToggleClose}><FaHeart /></Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/account">
+              <LinkContainer to="/Login">
                 <Nav.Link onClick={handleToggleClose}><FaUser /></Nav.Link>
               </LinkContainer>
               <LinkContainer to="/cart">

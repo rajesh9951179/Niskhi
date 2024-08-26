@@ -1,7 +1,7 @@
 import React from 'react'
 import BestSeller from './BestSeller'
 
-const ReadyToShip = () => {
+const LehengaKids = () => {
   return (
     <div>
       <BestSeller/>
@@ -9,4 +9,4 @@ const ReadyToShip = () => {
   )
 }
 
-export default ReadyToShip
+export default LehengaKids

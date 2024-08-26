@@ -11,7 +11,7 @@ import Form from 'react-bootstrap/Form';
 import { FaHeart} from 'react-icons/fa';
 import { IoShareOutline } from 'react-icons/io5';
 
-function BestSeller() {
+function Lehenga() {
   const [showFilter, setShowFilter] = useState(false);
   const [showRelevance, setShowRelevance] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -267,4 +267,4 @@ function BestSeller() {
   );
 }
 
-export default BestSeller;
+export default Lehenga;
