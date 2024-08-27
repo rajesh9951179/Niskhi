@@ -25,7 +25,7 @@ import SlideoutSearchbox from './components/SlideoutSearchbox';
 import Login from './components/Login';
 import Createaccount from './components/Createaccount';
 import WhatsAppButton from './components/WhatsAppButton';
-import Signinwithgoogle from './components/Signinwithgoogle'
+import Signinwithgoogle from './components/firebase'
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -85,7 +85,7 @@ function App() {
         <Route path="/SlideoutSearchbox" element={<SlideoutSearchbox />} />
         <Route path="/Login" element={<Login onLogin={handleLogin} />} />
         <Route path="/Createaccount" element={<Createaccount onAccountCreated={handleAccountCreated} />} />
-        <Route path="/Signinwithgoogle" element={<Signinwithgoogle />} />
+        <Route path="/firebase" element={<firebase />} />
       </Routes>
       {isLoggedIn && !isAuthPage() && (
         <>
