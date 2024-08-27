@@ -5,43 +5,21 @@ import Button from 'react-bootstrap/Button';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    setError(null);
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-    setError(null);
   };
 
   const handleSignIn = (e) => {
     e.preventDefault();
-    if (!email) {
-      setError('Please enter your email');
-    } else if (!password) {
-      setError('Please enter your password');
-    } else if (!validateEmail(email)) {
-      setError('Invalid email address');
-    } else if (password.length < 8) {
-      setError('Password must be at least 8 characters');
-    } else {
-      // Navigate to Home page
-      navigate('/Home', { state: { isLoggedIn: true } });
-    }
+    // Navigate to Home page without validation
+    navigate('/Home', { state: { isLoggedIn: true } });
   };
-
-  const validateEmail = (email) => {
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(email)) {
-      setError('Invalid email address');
-    }
-    return emailRegex.test(email);
-  };
-  
 
   return (
     <>
@@ -138,12 +116,6 @@ function Login() {
               color: 'black'
             }}>Forgot your password?</a>
           </div>
-
-          {error && (
-            <div style={{ color: 'red', marginBottom: '10px' }}>
-              {error}
-            </div>
-          )}
 
           <div style={{
             display: 'flex',
