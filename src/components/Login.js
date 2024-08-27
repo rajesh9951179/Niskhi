@@ -13,8 +13,10 @@ function Login() {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-  };
 
+    
+  };
+ 
   const handleSignIn = (e) => {
     e.preventDefault();
     // Navigate to Home page without validation
