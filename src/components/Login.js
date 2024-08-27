@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
-function Login() {
+function Login({onLogin}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -15,10 +15,12 @@ function Login() {
     setPassword(e.target.value);
   };
 
-  const handleSignIn = (e) => {
-    e.preventDefault();
+  // const handleSignIn = (e) => {
+    // e.preventDefault();
     // Navigate to Home page without validation
-    navigate('/Home', { state: { isLoggedIn: true } });
+    // navigate('/Home', { state: { isLoggedIn: true } });
+    const handleSignIn = () => {
+      onLogin();
   };
 
   return (
