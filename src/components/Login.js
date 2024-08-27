@@ -1,11 +1,12 @@
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import { auth, googleProvider, signInWithPopup } from './firebase'; 
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -17,6 +18,18 @@ function Login({ onLogin }) {
 
   const handleSignIn = () => {
     onLogin();
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+
+      // Perform actions after successful sign-in, like navigating to home page
+      navigate('/home');
+    } catch (error) {
+      console.error('Error signing in with Google:', error);
+    }
   };
 
   return (
@@ -159,6 +172,31 @@ function Login({ onLogin }) {
               CREATE ACCOUNT
             </Button>
           </Link>
+        </div>
+
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: '20px'
+        }}>
+          <Button
+            style={{
+              width: '100%',
+              height: '50px',
+              fontSize: '1rem',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#4285F4', 
+              color: 'white',
+              border: 'none',
+              borderRadius: '0px',
+              fontFamily: '"Times New Roman", Times, serif'
+            }}
+            onClick={handleGoogleSignIn}
+          >
+            Sign in with Google
+          </Button>
         </div>
       </form>
     </div>
