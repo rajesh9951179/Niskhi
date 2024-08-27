@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import NavBar from './components/Navbar';
 import Footer from './components/footer';
 import Home from './components/Home';
@@ -24,64 +24,73 @@ import GhararaSets from './components/GhararaSets';
 import SlideoutSearchbox from './components/SlideoutSearchbox';
 import Login from './components/Login';
 import Createaccount from './components/Createaccount';
+import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const userLoggedIn = localStorage.getItem('isLoggedIn');
+    if (userLoggedIn && location.pathname !== '/') {
+      setIsLoggedIn(true);
+    }
+  }, [location.pathname]);
+
   const handleLogin = () => {
     setIsLoggedIn(true);
-    navigate('/Home'); // Redirect to Home page after login
+    localStorage.setItem('isLoggedIn', true);
+    navigate('/Home', { replace: true });
   };
-
   const handleAccountCreated = () => {
-    navigate('/Login'); // Redirect to Login after account creation
+    navigate('/Login');
   };
 
-  const isAuthPage = location.pathname === '/Login' || location.pathname === '/Createaccount';
+  const isAuthPage = () => {
+    const authPages = ['/Login', '/Createaccount'];
+    return authPages.includes(location.pathname);
+  };
 
   return (
-    <>
-      {/* Conditionally render NavBar and Footer based on login status and path */}
-      {isLoggedIn && !isAuthPage && <NavBar />}
-      
+    <div>
+      {isLoggedIn && !isAuthPage() && (
+        <>
+          <NavBar fixed="top" /> {/* Add fixed="top" to make the navbar fixed */}
+          <WhatsAppButton/>
+        </>
+      )}
       <Routes>
-        {!isLoggedIn ? (
-          <>
-            <Route path="/" element={<Login onLogin={handleLogin} />} />
-            <Route path="/Home" element={<Home onLogin={handleLogin} />} />
-            <Route path="/Createaccount" element={<Createaccount onAccountCreated={handleAccountCreated} />} />
-          </>
-        ) : (
-          <>
-            <Route path="/Home" element={<Home />} />
-            <Route path="/NewArrivals" element={<NewArrivals />} />
-            <Route path="/BestSeller" element={<BestSeller />} />
-            <Route path="/Women" element={<Women />} />
-            <Route path="/Lehenga" element={<Lehenga />} />
-            <Route path="/Anarkali" element={<Anarkali />} />
-            <Route path="/Sarees" element={<Sarees />} />
-            <Route path="/Dresses" element={<Dresses />} />
-            <Route path="/Men" element={<Men />} />
-            <Route path="/Kids" element={<Kids />} />
-            <Route path="/Shirts" element={<Shirts />} />
-            <Route path="/Jackets" element={<Jackets />} />
-            <Route path="/KurtaSets" element={<KurtaSets />} />
-            <Route path="/Collection" element={<Collection />} />
-            <Route path="/ReadyToShip" element={<ReadyToShip />} />
-            <Route path="/SpecialPrice" element={<SpecialPrice />} />
-            <Route path="/KidsDresses" element={<KidsDresses />} />
-            <Route path="/LehengaKids" element={<LehengaKids />} />
-            <Route path="/GhararaSets" element={<GhararaSets />} />
-            <Route path="/SlideoutSearchbox" element={<SlideoutSearchbox />} />
-          </>
-        )}
+      <Route path="/" element={isLoggedIn ? <Home /> : <Login onLogin={handleLogin} />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/NewArrivals" element={<NewArrivals />} />
+        <Route path="/BestSeller" element={<BestSeller />} />
+        <Route path="/Women" element={<Women />} />
+        <Route path="/Men" element={<Men />} />
+        <Route path="/Kids" element={<Kids />} />
+        <Route path="/Collection" element={<Collection />} />
+        <Route path="/ReadyToShip" element={<ReadyToShip />} />
+        <Route path="/SpecialPrice" element={<SpecialPrice />} />
+        <Route path="/Lehenga" element={<Lehenga />} />
+        <Route path="/Anarkali" element={<Anarkali />} />
+        <Route path="/Sarees" element={<Sarees />} />
+        <Route path="/Dresses" element={<Dresses />} />
+        <Route path="/Jackets" element={<Jackets />} />
+        <Route path="/KurtaSets" element={<KurtaSets />} />
+        <Route path="/Shirts" element={<Shirts />} />
+        <Route path="/KidsDresses" element={<KidsDresses />} />
+        <Route path="/LehengaKids" element={<LehengaKids />} />
+        <Route path="/GhararaSets" element={<GhararaSets />} />
+        <Route path="/SlideoutSearchbox" element={<SlideoutSearchbox />} />
+        <Route path="/Login" element={<Login onLogin={handleLogin} />} />
+        <Route path="/Createaccount" element={<Createaccount onAccountCreated={handleAccountCreated} />} />
       </Routes>
-
-      {/* Conditionally render Footer based on login status and path */}
-      {isLoggedIn && !isAuthPage && <Footer />}
-    </>
+      {isLoggedIn && !isAuthPage() && (
+        <>
+          <Footer /> {/* Add the footer here */}
+        </>
+      )}
+    </div>
   );
 }
 

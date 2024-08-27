@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import slider_1 from '../images/slider_1.jpg';
 import slider_2 from '../images/slider_2.jpg';
@@ -6,73 +6,89 @@ import slider_3 from '../images/slider_3.jpg';
 import VideoCarousel from './VideoCarousel';
 import Grids from './Grids';
 import CategorySection from './Category';
-import NavBar from './Navbar';
-import Footer from './footer';
+import Login from './Login'; // Import the Login component
 
 function Home() {
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
+  React.useEffect(() => {
+    const userLoggedIn = localStorage.getItem('isLoggedIn');
+    if (userLoggedIn) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleSignIn = () => {
+    setIsLoggedIn(true);
+    localStorage.setItem('isLoggedIn', true);
+  };
+
   return (
     <div>
-      <NavBar/>
-    <div className="container-fluid p-0 m-0" style={{ overflowX: 'hidden', minHeight: '100vh' }}>
-      {/* Category Section */}
-      <div className="h-25 overflow-hidden" style={{ backgroundColor: '#d5d0cd', height: '25px' }}>
-        <CategorySection />
-      </div>
+      
+      {isLoggedIn ? (
+        <div className="container-fluid p-0 m-0" style={{ overflowX: 'hidden', minHeight: '100vh' }}>
+          {/* Category Section */}
+          <div className="h-25 overflow-hidden" style={{ backgroundColor: '#d5d0cd', height: '25px' }}>
+            <CategorySection />
+          </div>
 
-      {/* Image Carousel */}
-      <div className="row no-gutters">
-        <div className="col-12">
-          <Carousel fade>
-            <Carousel.Item>
-              <img
-                src={slider_1}
-                alt="First slide"
-                className="d-block w-100"
-                style={{ height: 'auto', minHeight: '300px', objectFit: 'cover' }}
-              />
-              <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                src={slider_2}
-                alt="Second slide"
-                className="d-block w-100"
-                style={{ height: 'auto', minHeight: '300px', objectFit: 'cover' }}
-              />
-              <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                src={slider_3}
-                alt="Third slide"
-                className="d-block w-100"
-                style={{ height: 'auto', minHeight: '300px', objectFit: 'cover' }}
-              />
-              <Carousel.Caption>
-                <h3>Third slide label</h3>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
+          {/* Image Carousel */}
+          <div className="row no-gutters">
+            <div className="col-12">
+              <Carousel fade>
+                <Carousel.Item>
+                  <img
+                    src={slider_1}
+                    alt="First slide"
+                    className="d-block w-100"
+                    style={{ height: 'auto', minHeight: '300px', objectFit: 'cover' }}
+                  />
+                  <Carousel.Caption>
+                    <h3>First slide label</h3>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    src={slider_2}
+                    alt="Second slide"
+                    className="d-block w-100"
+                    style={{ height: 'auto', minHeight: '300px', objectFit: 'cover' }}
+                  />
+                  <Carousel.Caption>
+                    <h3>Second slide label</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    src={slider_3}
+                    alt="Third slide"
+                    className="d-block w-100"
+                    style={{ height: 'auto', minHeight: '300px', objectFit: 'cover' }}
+                  />
+                  <Carousel.Caption>
+                    <h3>Third slide label</h3>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                  </Carousel.Caption>
+                </Carousel.Item>
+              </Carousel>
+            </div>
+          </div>
+
+          {/* Video Carousel */}
+          <VideoCarousel />
+
+          {/* Grids Section */}
+          <Grids />
         </div>
-      </div>
-
-      {/* Video Carousel */}
-      <VideoCarousel />
-
-      {/* Grids Section */}
-      <Grids />
-    </div>
-    <Footer/>
+      ) : (
+        <Login handleSignIn={handleSignIn} />
+      )}
+      
     </div>
   );
 }
 
 export default Home;
-
