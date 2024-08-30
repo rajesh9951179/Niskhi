@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { auth, googleProvider, signInWithPopup } from './firebase'; 
+import googleLogo from  '../images/Googlelogo.jpg';
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -179,24 +180,40 @@ function Login({ onLogin }) {
           justifyContent: 'center',
           marginTop: '20px'
         }}>
-          <Button
+         <Button
             style={{
-              width: '100%',
-              height: '50px',
-              fontSize: '1rem',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: '#4285F4', 
-              color: 'white',
-              border: 'none',
-              borderRadius: '0px',
-              fontFamily: '"Times New Roman", Times, serif'
-            }}
-            onClick={handleGoogleSignIn}
-          >
-            Sign in with Google
-          </Button>
+             width: '100%',
+             height: '50px',
+             fontSize: '1rem',
+             display: 'flex',
+             justifyContent: 'center',
+             alignItems: 'center',
+             backgroundColor: '#ffffff', 
+             color: '#4285F4', 
+             border: '1px solid #4285F4', 
+             borderRadius: '4px', 
+             fontFamily: '"Roboto", sans-serif', 
+             boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', 
+             textTransform: 'none', 
+             cursor: 'pointer',
+             padding: '0 16px', 
+             fontWeight: '500', 
+             transition: 'background-color 0.3s, color 0.3s', 
+              '&:hover': {
+             backgroundColor: '#f1f3f4', 
+             color: '#4285F4', 
+           }
+         }}
+         onClick={handleGoogleSignIn}
+    >
+      <img
+         src={googleLogo} 
+        alt="Google logo"
+        style={{ width: '44px', height: '44px', marginRight: '4px' }} 
+      />
+      Sign in with Google
+      </Button>
+       
         </div>
       </form>
     </div>
