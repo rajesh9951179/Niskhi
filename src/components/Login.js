@@ -26,7 +26,7 @@ function Login({ onLogin }) {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
 
-      // Perform actions after successful sign-in, like navigating to home page
+      
       navigate('/home');
     } catch (error) {
       console.error('Error signing in with Google:', error);
@@ -36,7 +36,7 @@ function Login({ onLogin }) {
   return (
     <div style={{
       display: 'flex',
-      justifyContent: 'center',
+      justifyContent:  'center',
       alignItems: 'center',
       minHeight: '100vh',
       margin: 0
