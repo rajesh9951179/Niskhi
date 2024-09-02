@@ -20,9 +20,9 @@ const Footer = () => {
           <div className="col-md-3" >
             <h5 className="text-uppercase" style={infoColumnStyle}>Info</h5><br></br>
             <ul className="list-unstyled">
-              <li><a href="/about-us" className="text-light text-decoration-none">About Us</a></li>
-              <li><a href="/contact-us" className="text-light text-decoration-none">Contact Us</a></li>
-              <li><a href="/faqs" className="text-light text-decoration-none">FAQs</a></li>
+              <li><a href="/AboutUs" className="text-light text-decoration-none">About Us</a></li>
+              <li><a href="/Contactus" className="text-light text-decoration-none">Contact Us</a></li>
+              <li><a href="/FAQ" className="text-light text-decoration-none">FAQs</a></li>
               <li><a href="/careers" className="text-light text-decoration-none">Careers</a></li>
               <li><a href="/size-guide" className="text-light text-decoration-none">Size Guide</a></li>
             </ul>
@@ -33,7 +33,7 @@ const Footer = () => {
             <h5 className="text-uppercase"style={infoColumnStyle}>Legal</h5><br></br>
             <ul className="list-unstyled">
               <li><a href="/terms-conditions" className="text-light text-decoration-none">Terms & Conditions</a></li>
-              <li><a href="/shipping-return" className="text-light text-decoration-none">Shipping & Return</a></li>
+              <li><a href="/Shipping" className="text-light text-decoration-none">Shipping & Return</a></li>
               <li><a href="/policies" className="text-light text-decoration-none">Policies</a></li>
             </ul>
           </div>
@@ -42,8 +42,8 @@ const Footer = () => {
           <div className="col-md-3">
             <h5 className="text-uppercase"style={infoColumnStyle}>Need Help?</h5><br></br>
             <ul className="list-unstyled">
-              <li><a href="/track-order" className="text-light text-decoration-none">Track my Order</a></li>
-              <li><a href="/privacy-cookies" className="text-light text-decoration-none">Privacy & Cookies</a></li>
+              <li><a href="/TrackmyOrder" className="text-light text-decoration-none">Track my Order</a></li>
+              <li><a href="/policies" className="text-light text-decoration-none">Privacy & Cookies</a></li>
             </ul>
           </div>
 
