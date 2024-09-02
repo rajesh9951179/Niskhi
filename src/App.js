@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import NavBar from './components/Navbar';
 import Footer from './components/footer';
 import Home from './components/Home';
@@ -25,6 +25,14 @@ import SlideoutSearchbox from './components/SlideoutSearchbox';
 import Login from './components/Login';
 import Createaccount from './components/Createaccount';
 import WhatsAppButton from './components/WhatsAppButton';
+import Policies from './components/Policies';
+import TrackmyOrder from './components/TrackmyOrder';
+import Shipping from './components/Shipping';
+import AboutUs from './components/AboutUs';
+import Contactus from './components/Contactus';
+import FAQ from './components/FAQ';
+
+
 
 
 function App() {
@@ -61,6 +69,7 @@ function App() {
           <WhatsAppButton/>
         </>
       )}
+      
       <Routes>
       <Route path="/" element={isLoggedIn ? <Home /> : <Login onLogin={handleLogin} />} />
         <Route path="/Home" element={<Home />} />
@@ -86,6 +95,15 @@ function App() {
         <Route path="/Login" element={<Login onLogin={handleLogin} />} />
         <Route path="/Createaccount" element={<Createaccount onAccountCreated={handleAccountCreated} />} />
         <Route path="/firebase" element={<firebase />} />
+        <Route path="/Policies" element={<Policies />} />
+        <Route path="/TrackmyOrder" element={<TrackmyOrder />} />
+        <Route path="/Shipping" element={<Shipping />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/Contactus" element={<Contactus />} />
+        <Route path="/FAQ" element={<FAQ />} />
+
+        
+
       </Routes>
       {isLoggedIn && !isAuthPage() && (
         <>
@@ -101,5 +119,5 @@ export default function AppWrapper() {
     <Router>
       <App />
     </Router>
-  );
+  );
 }
