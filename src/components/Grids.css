@@ -175,7 +175,7 @@
   color: #fff; /* Text color */
   text-align: center;
   position: absolute;
-  bottom: ; /* Position at the bottom of the box */
+  bottom: 1; /* Position at the bottom of the box */
 }
 
 .item-name {

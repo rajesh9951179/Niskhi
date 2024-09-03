@@ -83,7 +83,6 @@ function Grids({ images = [], hoverImages = [], names = [], prices = [] }) {
                 className={`main-image ${hoveredIndex === index ? 'visible' : ''}`}
                 
               />
-              
             </div>
             <div className="info-container">
               <h3 className="item-name">{names[index]}</h3>
@@ -95,5 +94,4 @@ function Grids({ images = [], hoverImages = [], names = [], prices = [] }) {
     </div>
   );
 }
-
 export default Grids;
