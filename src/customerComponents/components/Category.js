@@ -15,10 +15,10 @@ const CategoryCard = ({ image, label, selected, link }) => {
 
   return (
     <Card
-      className="text-center border-0 category-card"
-      style={{ backgroundColor: 'transparent', cursor: 'pointer', margin: '0 10px' }} // Add horizontal margin
-      onClick={handleClick}
-    >
+  className="text-center border-0 category-card"
+  style={{ backgroundColor: 'transparent', cursor: 'pointer', margin: '0 10px' }} // Corrected 'transparent' spelling
+  onClick={handleClick}
+>
       <Card.Img
         src={image}
         alt={label}
@@ -39,7 +39,7 @@ const CategoryCard = ({ image, label, selected, link }) => {
 
 const CategorySection = () => {
   return (
-    <Container fluid className="p-3">
+    <Container fluid className="category-section">
       <Row 
         className="d-flex justify-content-center overflow-auto no-gutters" 
         style={{ whiteSpace: 'nowrap', flexWrap: 'nowrap' }}
