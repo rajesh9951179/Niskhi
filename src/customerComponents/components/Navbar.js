@@ -104,7 +104,7 @@ const NavBar = () => {
               <LinkContainer to="/Login">
                 <Nav.Link onClick={handleToggleClose}><FaUser /></Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/cart">
+              <LinkContainer to="/Cart">
                 <Nav.Link onClick={handleToggleClose}>
                   <FaShoppingBag />
                   <span className="badge rounded-circle translate-middle bg-danger text-white p-0" style={{ fontSize: '12px' }}>0</span>
@@ -117,5 +117,4 @@ const NavBar = () => {
     </>
   );
 };
-
 export default NavBar;
