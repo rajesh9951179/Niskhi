@@ -3,13 +3,9 @@
     margin: 0 auto;
   }
   
-  h2 {
-    font-size: 2rem;
-    color: #333;
-    font-family: 'centaur';
-  }
+ 
   
-  .accordion-button {
+  /* .accordion-button {
     background-color: #f8f9fa;
     border: 1px solid #ddd;
     border-radius: 0.25rem;
@@ -17,7 +13,7 @@
     font-weight: 600;
     font-family: 'centaur';
     font-size: 1.25rem;
-  }
+  } */
   
   .accordion-button:not(.collapsed) {
     color: #007bff;

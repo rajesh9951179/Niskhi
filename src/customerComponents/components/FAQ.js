@@ -5,8 +5,8 @@ import './FAQ.css';
 const FAQ = () => {
   return (
     <div className="container mt-5">
-      <h2 className="mb-4 text-center">Frequently Asked Questions</h2>
-      <Accordion defaultActiveKey="0">
+      <h2 style={{fontSize:"2rem", color:" #333", fontFamily:"centaur"}} className="mb-4 text-center">Frequently Asked Questions</h2>
+      <Accordion  defaultActiveKey="0">
         <Accordion.Item eventKey="0">
           <Accordion.Header>How many days does it take to ship a product?</Accordion.Header>
           <Accordion.Body>
