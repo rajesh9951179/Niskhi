@@ -10,7 +10,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import { FaHeart} from 'react-icons/fa';
 import { IoShareOutline } from 'react-icons/io5';
-
+import ProductPage from '../components/ProductPage';
 function NewArrivals() {
   const [showFilter, setShowFilter] = useState(false);
   const [showRelevance, setShowRelevance] = useState(false);
@@ -59,20 +59,20 @@ function NewArrivals() {
   };
 
   const dresses = [
-    { id: 1, defaultImg: './d11.jpg', hoverImg: './d12.jpg', title: 'ETHNIC WEAR', price: 'Rs. 1500.00', category: 'Ethnic', href: '/ethnic' },
-    { id: 2, defaultImg: './d21.jpg', hoverImg: './d22.jpg', title: 'CASUAL WEAR', price: 'Rs. 1200.00', category: 'Casual', href: '/casual' },
-    { id: 3, defaultImg: './d31.jpg', hoverImg: './d32.jpg', title: 'FORMAL WEAR', price: 'Rs. 2000.00', category: 'Formal', href: '/formal' },
-    { id: 4, defaultImg: './d41.jpg', hoverImg: './d42.jpg', title: 'PARTY WEAR', price: 'Rs. 2500.00', category: 'Party', href: '/party' },
-    { id: 5, defaultImg: './d51.webp', hoverImg: './d52.webp', title: 'TRADITIONAL WEAR', price: 'Rs. 1800.00', category: 'Ethnic', href: '/traditional' },
-    { id: 6, defaultImg: './d6.1.jpg', hoverImg: './d62.jpg', title: 'SUMMER WEAR', price: 'Rs. 1100.00', category: 'Casual', href: '/summer' },
+    { id: 1, defaultImg: './d11.jpg', hoverImg: './d12.jpg', title: 'ETHNIC WEAR', price: 'Rs. 1500.00', category: 'Ethnic', href: '/ProductPage' },
+    { id: 2, defaultImg: './d21.jpg', hoverImg: './d22.jpg', title: 'CASUAL WEAR', price: 'Rs. 1200.00', category: 'Casual', href: '/ProductPage' },
+    { id: 3, defaultImg: './d31.jpg', hoverImg: './d32.jpg', title: 'FORMAL WEAR', price: 'Rs. 2000.00', category: 'Formal', href: '/ProductPage' },
+    { id: 4, defaultImg: './d41.jpg', hoverImg: './d42.jpg', title: 'PARTY WEAR', price: 'Rs. 2500.00', category: 'Party', href: '/ProductPage' },
+    { id: 5, defaultImg: './d51.webp', hoverImg: './d52.webp', title: 'TRADITIONAL WEAR', price: 'Rs. 1800.00', category: 'Ethnic', href: '/ProductPage' },
+    { id: 6, defaultImg: './d6.1.jpg', hoverImg: './d62.jpg', title: 'SUMMER WEAR', price: 'Rs. 1100.00', category: 'Casual', href: '/ProductPage' },
 
     
-    { id: 7, defaultImg: './d71.jpg', hoverImg: './d72.jpg', title: 'ETHNIC WEAR', price: 'Rs. 1500.00', category: 'Ethnic', href: '/ethnic' },
-    { id: 8, defaultImg: './d81.jpg', hoverImg: './d82.jpg', title: 'CASUAL WEAR', price: 'Rs. 1200.00', category: 'Casual', href: '/casual' },
-    { id: 9, defaultImg: './d91.jpg', hoverImg: './d92.jpg', title: 'FORMAL WEAR', price: 'Rs. 2000.00', category: 'Formal', href: '/formal' },
-    { id: 10, defaultImg: './d101.jpg', hoverImg: './d102.jpg', title: 'PARTY WEAR', price: 'Rs. 2500.00', category: 'Party', href: '/party' },
-    { id: 11, defaultImg: './d111.jpg', hoverImg: './d112.jpg', title: 'TRADITIONAL WEAR', price: 'Rs. 1800.00', category: 'Ethnic', href: '/traditional' },
-    { id: 12, defaultImg: './d12.1.jpg', hoverImg: './d12.2.jpg', title: 'SUMMER WEAR', price: 'Rs. 1100.00', category: 'Casual', href: '/summer' },
+    { id: 7, defaultImg: './d71.jpg', hoverImg: './d72.jpg', title: 'ETHNIC WEAR', price: 'Rs. 1500.00', category: 'Ethnic', href: '/ProductPage' },
+    { id: 8, defaultImg: './d81.jpg', hoverImg: './d82.jpg', title: 'CASUAL WEAR', price: 'Rs. 1200.00', category: 'Casual', href: '/ProductPage' },
+    { id: 9, defaultImg: './d91.jpg', hoverImg: './d92.jpg', title: 'FORMAL WEAR', price: 'Rs. 2000.00', category: 'Formal', href: '/ProductPage' },
+    { id: 10, defaultImg: './d101.jpg', hoverImg: './d102.jpg', title: 'PARTY WEAR', price: 'Rs. 2500.00', category: 'Party', href: '/ProductPage' },
+    { id: 11, defaultImg: './d111.jpg', hoverImg: './d112.jpg', title: 'TRADITIONAL WEAR', price: 'Rs. 1800.00', category: 'Ethnic', href: '/ProductPage' },
+    { id: 12, defaultImg: './d12.1.jpg', hoverImg: './d12.2.jpg', title: 'SUMMER WEAR', price: 'Rs. 1100.00', category: 'Casual', href: '/ProductPage' },
     // Add more dresses as needed
   ];
 
