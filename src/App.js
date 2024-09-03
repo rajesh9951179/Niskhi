@@ -32,6 +32,11 @@ import AboutUs from './customerComponents/components/AboutUs';
 import Contactus from './customerComponents/components/Contactus';
 import FAQ from './customerComponents/components/FAQ';
 import Careers from './customerComponents/components/Careers';
+import Terms from './customerComponents/components/Terms';
+import SizeGuide from './customerComponents/components/SizeGuide';
+
+
+
 
 
 
@@ -102,6 +107,12 @@ function App() {
         <Route path="/Contactus" element={<Contactus />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/Careers" element={<Careers />} />
+        <Route path="/Terms" element={<Terms />} />
+        <Route path="/SizeGuide" element={<SizeGuide />} />
+
+        
+
+
 
         {/* <Route path ='/Cart' element={<Cart/>}/> */}
         

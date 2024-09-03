@@ -1,0 +1,110 @@
+.sizechart {
+    margin-top: 50px;
+    margin-left: 40%;
+    font-family: Futura;
+  }
+  
+  .img1 {
+    margin-left: 15%;
+  }
+  
+  .img2 {
+    margin-left: 7%;
+  }
+  
+  .video {
+    margin-left: 32%;
+    width: 40%;
+    height: 60vh;
+  }
+  
+  .measurement {
+    font-family: Centaur;
+  }
+  
+  .size-chart-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .size-chart-table {
+    border-collapse: collapse;
+    width: 85%;
+  }
+  
+  .size-chart-table th,
+  .size-chart-table td {
+    border: 1px solid #c8a59d;
+    padding: 18px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .highlight-row td {
+    background-color: #c8a59d;
+  }
+  
+  .highlight-col {
+    background-color: #c8a59d;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 1200px) {
+    .sizechart {
+      margin-left: 30%;
+    }
+  
+    .img1 {
+      margin-left: 10%;
+    }
+  
+    .img2 {
+      margin-left: 5%;
+    }
+  
+    .video {
+      margin-left: 20%;
+      width: 50%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .sizechart {
+      margin-left: 20%;
+    }
+  
+    .img1 {
+      margin-left: 5%;
+    }
+  
+    .img2 {
+      margin-left: 2%;
+    }
+  
+    .video {
+      margin-left: 10%;
+      width: 70%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .sizechart {
+      margin-left: 10%;
+    }
+  
+    .img1,
+    .img2,
+    .video {
+      margin-left: 0;
+      width: 100%;
+    }
+  
+    .video {
+      height: auto;
+    }
+  
+    .size-chart-table {
+      width: 100%;
+    }
+  }
+  
