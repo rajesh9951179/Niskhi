@@ -31,7 +31,7 @@ import Shipping from './components/Shipping';
 import AboutUs from './components/AboutUs';
 import Contactus from './components/Contactus';
 import FAQ from './components/FAQ';
-
+import Cart from './components/Cart';
 
 
 
@@ -101,7 +101,7 @@ function App() {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Contactus" element={<Contactus />} />
         <Route path="/FAQ" element={<FAQ />} />
-
+        {/* <Route path ='/Cart' element={<Cart/>}/> */}
         
 
       </Routes>
