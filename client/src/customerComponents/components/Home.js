@@ -4,12 +4,9 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 // import slider_2 from '../images/slider_2.jpg';
 // import slider_3 from '../images/slider_3.jpg';
 // import slider_4 from '../images/slider_4.jpg';
-import slider_1 from '../images/slider_1.jpg';
-import slider_2 from '../images/slider_2.jpg';
 import slider_3_1 from '../images/slider_3_1.jpg';
 import slider_4_1 from '../images/slider_4_1.jpg';
 // import VideoPlayer from '../components/VideoPlayer';
-import Grids from '../components/Grids';
 import Card from '../components/Card';
 import VideoPlayer from '../components/VideoPlayer';
 import GridsVideo from '../components/GridsVideo';
@@ -18,9 +15,7 @@ import slider_1 from '../images/slider_1.jpg';
 import slider_2 from '../images/slider_2.jpg';
 import slider_3 from '../images/slider_3.jpg';
 import slider_4 from '../images/slider_4.jpg';
-import VideoPlayer from '../components/VideoPlayer';
 import Grids from './Grids';
-import Card from './Card';
 import CategorySection from './Category';
 import Login from './Login';
 import './Home.css';
@@ -69,20 +64,14 @@ import front_6 from '../images/front_6.jpg';
 import hover_6 from '../images/hover_6.jpg';
 
 // Import images for the first Card component
-import card_1_1 from '../images/card_1_1.jpg';
-import card_2_1 from '../images/card_2_1.jpg';
-import card_3_1 from '../images/card_3_1.jpg';
-import card_4_1 from '../images/card_4_1.jpg';
-import card_5_1 from '../images/card_5_1.jpg';
-import card_6_1 from '../images/card_6_1.jpg';
-
+  
 // Import images for the second Card component
-import card_1_2 from '../images/card_1_2.jpg';
-import card_2_2 from '../images/card_2_2.jpg';
-import card_3_3 from '../images/card_3_3.jpg';
-import card_4_4 from '../images/card_4_4.jpg';
-import card_5_5 from '../images/card_5_5.jpg';
-import card_6_6 from '../images/card_6_6.jpg';
+// import card_1_2 from '../images/card_1_2.jpg';
+// import card_2_2 from '../images/card_2_2.jpg';
+// import card_3_3 from '../images/card_3_3.jpg';
+// import card_4_4 from '../images/card_4_4.jpg';
+// import card_5_5 from '../images/card_5_5.jpg';
+// import card_6_6 from '../images/card_6_6.jpg';
 
 import video_2 from '../images/video-2.mp4';
 import video_3 from '../images/video-3.mp4';

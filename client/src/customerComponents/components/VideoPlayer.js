@@ -1,7 +1,6 @@
 import React from 'react'
 import './VideoPlayer.css'
 import video_1 from '../images/video_1.mp4';
-import video_1 from '../images/video-1.mp4';
 
 function VideoPlayer() {
   return (
