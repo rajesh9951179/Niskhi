@@ -1,8 +1,4 @@
 
-
-
-
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
@@ -23,11 +19,13 @@ function Login({ onLogin }) {
     setPassword(e.target.value);
   };
 
+  
+
   const handleSignIn = async () => {
     try {
       const response = await axios.post('http://localhost:5002/api/login', { email, password });
       if (response.status === 200) {
-        navigate('/home');
+        navigate('/Home');
         onLogin(); // Call onLogin prop if needed
       }
     } catch (error) {
@@ -42,7 +40,7 @@ function Login({ onLogin }) {
       const user = result.user;
 
       // Perform actions after successful sign-in, like navigating to home page
-      navigate('/home');
+      navigate('/Home');
     } catch (error) {
       console.error('Error signing in with Google:', error);
     }

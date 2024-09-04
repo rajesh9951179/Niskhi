@@ -15,5 +15,3 @@ const Card = ({ image, title, itemCount }) => {
 };
 
 export default Card;
-
-

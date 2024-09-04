@@ -95,5 +95,3 @@ function Grids({ images = [], hoverImages = [], names = [], prices = [] }) {
   );
 }
 export default Grids;
-
-
