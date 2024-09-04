@@ -1,8 +1,14 @@
+
+
+
+
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { auth, googleProvider, signInWithPopup } from './firebase'; 
-import googleLogo from  '../images/Googlelogo.jpg';
+import googleLogo from '../images/Googlelogo.jpg';
+import axios from 'axios'; // Add axios for HTTP requests
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -17,8 +23,17 @@ function Login({ onLogin }) {
     setPassword(e.target.value);
   };
 
-  const handleSignIn = () => {
-    onLogin();
+  const handleSignIn = async () => {
+    try {
+      const response = await axios.post('http://localhost:5002/api/login', { email, password });
+      if (response.status === 200) {
+        navigate('/home');
+        onLogin(); // Call onLogin prop if needed
+      }
+    } catch (error) {
+      alert('Invalid email or password');
+      console.error('Error logging in:', error);
+    }
   };
 
   const handleGoogleSignIn = async () => {
@@ -26,7 +41,7 @@ function Login({ onLogin }) {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
 
-      
+      // Perform actions after successful sign-in, like navigating to home page
       navigate('/home');
     } catch (error) {
       console.error('Error signing in with Google:', error);
@@ -36,7 +51,7 @@ function Login({ onLogin }) {
   return (
     <div style={{
       display: 'flex',
-      justifyContent:  'center',
+      justifyContent: 'center',
       alignItems: 'center',
       minHeight: '100vh',
       margin: 0
@@ -177,43 +192,26 @@ function Login({ onLogin }) {
 
         <div style={{
           display: 'flex',
-          justifyContent: 'center',
-          marginTop: '20px'
+          justifyContent: 'center'
         }}>
-         <Button
-            style={{
-             width: '100%',
-             height: '50px',
-             fontSize: '1rem',
-             display: 'flex',
-             justifyContent: 'center',
-             alignItems: 'center',
-             backgroundColor: '#ffffff', 
-             color: '#4285F4', 
-             border: '1px solid #4285F4', 
-             borderRadius: '4px', 
-             fontFamily: '"Roboto", sans-serif', 
-             boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', 
-             textTransform: 'none', 
-             cursor: 'pointer',
-             padding: '0 16px', 
-             fontWeight: '500', 
-             transition: 'background-color 0.3s, color 0.3s', 
-              '&:hover': {
-             backgroundColor: '#f1f3f4', 
-             color: '#4285F4', 
-           }
-         }}
-         onClick={handleGoogleSignIn}
-    >
-      <img
-         src={googleLogo} 
-        alt="Google logo"
-        style={{ width: '44px', height: '44px', marginRight: '4px' }} 
-      />
-      Sign in with Google
-      </Button>
-       
+          <Button onClick={handleGoogleSignIn} style={{
+            height: '50px',
+            fontSize: '1rem',
+            backgroundColor: '#FFFFFF',
+            color: 'black',
+            border: '1px solid rgba(0, 0, 0, 0.1)',
+            borderRadius: '0',
+            display: 'flex',
+            alignItems: 'center',
+            padding: '0.5rem 1rem'
+          }}>
+            <img src={googleLogo} alt="Google Logo" style={{
+              width: '25px',
+              height: '25px',
+              marginRight: '0.5rem'
+            }} />
+            CONTINUE WITH GOOGLE
+          </Button>
         </div>
       </form>
     </div>
@@ -221,3 +219,5 @@ function Login({ onLogin }) {
 }
 
 export default Login;
+
+
