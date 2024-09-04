@@ -25,7 +25,7 @@ const Footer = () => {
               <li><a href="/Contactus" className="text-light text-decoration-none">Contact Us</a></li>
               <li><a href="/FAQ" className="text-light text-decoration-none">FAQs</a></li>
               <li><a href="/careers" className="text-light text-decoration-none">Careers</a></li>
-              <li><a href="/size-guide" className="text-light text-decoration-none">Size Guide</a></li>
+              <li><a href="/SizeGuide" className="text-light text-decoration-none">Size Guide</a></li>
             </ul>
           </div>
 
@@ -33,7 +33,7 @@ const Footer = () => {
           <div className="col-md-3">
             <h5 className="text-uppercase"style={infoColumnStyle}>Legal</h5><br></br>
             <ul className="list-unstyled">
-              <li><a href="/terms-conditions" className="text-light text-decoration-none">Terms & Conditions</a></li>
+              <li><a href="/Terms" className="text-light text-decoration-none">Terms & Conditions</a></li>
               <li><a href="/Shipping" className="text-light text-decoration-none">Shipping & Return</a></li>
               <li><a href="/policies" className="text-light text-decoration-none">Policies</a></li>
             </ul>

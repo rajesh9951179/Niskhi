@@ -16,10 +16,17 @@ const CategoryCard = ({ image, label, selected, link }) => {
 
   return (
     <Card
+
       className="text-center border-0 category-card"
       style={{ backgroundColor: 'transparent', cursor: 'pointer', margin: '0 10px' }}
       onClick={handleClick}
     >
+
+  className="text-center border-0 category-card"
+  style={{ backgroundColor: 'transparent', cursor: 'pointer', margin: '0 10px' }} // Corrected 'transparent' spelling
+  onClick={handleClick}
+>
+
       <Card.Img
         src={image}
         alt={label}
