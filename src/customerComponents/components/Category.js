@@ -1,11 +1,12 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import categorywomen from '../images/categorywomen.png';
 import categorymen from '../images/categorymen.png';
 import categorychild from '../images/categorychild.png';
 import categoryaccesories from '../images/categoryaccesories.png';
-import { useNavigate } from 'react-router-dom';
-import './Category.css'
+import './Category.css';
+
 const CategoryCard = ({ image, label, selected, link }) => {
   const navigate = useNavigate();
 
@@ -15,19 +16,26 @@ const CategoryCard = ({ image, label, selected, link }) => {
 
   return (
     <Card
+
+      className="text-center border-0 category-card"
+      style={{ backgroundColor: 'transparent', cursor: 'pointer', margin: '0 10px' }}
+      onClick={handleClick}
+    >
+
   className="text-center border-0 category-card"
   style={{ backgroundColor: 'transparent', cursor: 'pointer', margin: '0 10px' }} // Corrected 'transparent' spelling
   onClick={handleClick}
 >
+
       <Card.Img
         src={image}
         alt={label}
-        className={` mt-2 rounded-circle ${selected ? 'selected-category' : ''}`}
+        className={`mt-2 rounded-circle ${selected ? 'selected-category' : ''}`}
         style={{
           width: '60px', 
           height: '70px',
           objectFit: 'cover',
-          margin: '0  auto',
+          margin: '0 auto',
         }}
       />
       <Card.Body>
