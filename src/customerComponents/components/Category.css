@@ -1,10 +1,18 @@
+.category-section {
+  background-color: #e0d8d5;
+  width: 100vw; /* Full viewport width */
+  padding: 20px 0; /* Adds some padding for spacing */
+  margin: 0; /* Removes any margin that might be causing issues */
+  position: relative;
+  right: 15px;
+}
+
 .category-card .rounded-circle {
-    border: 3px solid transparent;
-    transition: border-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .category-card .rounded-circle:hover {
-    border-color: red;
-    transform: scale(1.07);
-  }
-  
+  border: 3px solid transparent;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.category-card .rounded-circle:hover {
+  border-color: red;
+  transform: scale(1.07);
+}

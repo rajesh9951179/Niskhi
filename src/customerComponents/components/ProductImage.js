@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Image, Carousel, Row, Col, Container } from 'react-bootstrap';
-import img from '../images/img.png';
+import img1 from '../images/img1.jpeg';
 import img2 from '../images/img2.png';
 import img3 from '../images/img3.png';
 import img4 from '../images/img4.png';
@@ -12,11 +12,11 @@ import img9 from '../images/img9.png';
 
 function ProductImage() {
   const images = [
-    img, img2, img3, img4, img5,
+    img1, img2, img3, img4, img5,
     img6, img7, img8, img9
   ];
 
-  const [selectedImage, setSelectedImage] = useState(img);
+  const [selectedImage, setSelectedImage] = useState(img1);
   const [carouselIndex, setCarouselIndex] = useState(0);
 
   const handleImageClick = (image, index) => {
@@ -39,7 +39,7 @@ function ProductImage() {
               <Col xs={6} key={index}>
                 <Image
                   src={image}
-                  alt={Small Image ${index + 1}}
+                  alt={`Small Image ${index + 1}`}
                   className="img-fluid mb-2 custom-small-img"
                   onClick={() => handleImageClick(image, index)}
                 />
@@ -51,7 +51,7 @@ function ProductImage() {
               <Col xs={6} key={index + 6}>
                 <Image
                   src={image}
-                  alt={Small Image ${index + 7}}
+                  alt={`Small Image ${index + 7}`}
                   className="img-fluid mb-2 custom-small-img"
                   onClick={() => handleImageClick(image, index + 6)}
                 />
@@ -72,7 +72,7 @@ function ProductImage() {
               <Carousel.Item key={index}>
                 <img
                   src={image}
-                  alt={Product Image ${index + 1}}
+                  alt={`Product Image ${index + 1}`}
                   className="img-fluid custom-img-size"
                 />
               </Carousel.Item>

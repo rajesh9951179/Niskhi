@@ -6,7 +6,8 @@ const Footer = () => {
     background: `url(${footer_image}) no-repeat center center`, 
     backgroundSize: 'cover',
   //  fontFamily: 'Comic Sans MS, cursive, sans-serif '
-  fontFamily: 'Courier New, monospace'
+  fontFamily: 'Courier New, monospace',
+   marginTop: '50px'
   };
   const infoColumnStyle = {
     fontFamily:'Courier New monospace'

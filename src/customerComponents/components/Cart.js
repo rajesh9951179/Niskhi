@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import './Cart.css'; // Import your custom CSS for styling
-// import img from '../images/img.png'; 
-
+import img1 from '../images/img1.jpeg'; 
+import { Link } from 'react-bootstrap-icons';
 const Cart = ({ show, onClose }) => {
   const [quantity, setQuantity] = useState(1); // Initial quantity set to 1
   const itemPrice = 6990.00; // Price for one item
@@ -26,7 +26,7 @@ const Cart = ({ show, onClose }) => {
       <Modal.Body>
         <div className="cart-item">
           <img
-            // src={img} // Replace with actual image path
+            src={img1} // Replace with actual image path
             alt="DAKSH BANDI"
             className="cart-item-image"
           />
@@ -62,9 +62,11 @@ const Cart = ({ show, onClose }) => {
         </div>
       </Modal.Body>
       <Modal.Footer className="cart-footer">
-        <Button className="view-cart">
-          VIEW CART
-        </Button>
+      {/* <Link to="/Cart" className="btn-link"> */}
+      <Button className="view-cart">
+        VIEW CART
+      </Button>
+    {/* </Link> */}
         <Button className="checkout">
           CHECK OUT
         </Button>
