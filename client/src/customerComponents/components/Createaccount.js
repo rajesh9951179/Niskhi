@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 function Createaccount() {
   const [formData, setFormData] = useState({
@@ -18,6 +18,7 @@ function Createaccount() {
     email: '',
     pswd: ''
   });
+  const navigate = useNavigate();
 
   const validateFirstName = (firstName) => {
     if (!firstName) return 'First Name is required.';
@@ -92,6 +93,8 @@ function Createaccount() {
     try {
       const response = await axios.post('http://localhost:5002/api/createaccount', formData);
       alert(response.data.message);
+      navigate('/Login');
+
     } catch (error) {
       alert('Error creating account: ' + (error.response?.data?.message || 'Unexpected error occurred.'));
     }
