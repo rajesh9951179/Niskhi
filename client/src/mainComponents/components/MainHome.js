@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Container } from 'react-bootstrap';
-import logoMain from '../customerComponents/images/logoMain.png';
+import logoMain from '../images/logoMain.png';
+
 
 function MainHome() {
   const [expanded, setExpanded] = useState(false);
