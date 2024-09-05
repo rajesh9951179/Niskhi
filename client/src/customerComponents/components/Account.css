@@ -1,0 +1,115 @@
+.customer-account {
+  padding-top: 7rem;
+  padding-bottom: 8rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.grid__wrapper {
+  display: grid;
+  grid-template-columns: 0.6fr 2fr;
+  gap: 6rem; 
+  align-items: start;
+  margin-left: 2rem;
+}
+
+.account-sidebar {
+  grid-column: 1;
+  margin-top: 0;
+}
+
+.customer-account__sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.customer-account__sidebar-link {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0;
+  font-family: "Centaur";
+  font-size: 1.25rem;
+}
+
+.customer-account__sidebar-link:hover,
+.customer-account__sidebar-link:focus {
+  text-decoration: underline;
+}
+
+.active--link {
+  text-decoration: underline;
+}
+
+.account-orders {
+  grid-column: 2;
+  margin-top: 0;
+}
+
+.addUser {
+  display: block;
+  margin: 3rem auto 0 auto;
+  background-color: #c29790;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-family: "Centaur";
+  font-size: 1rem;
+}
+
+.addUser:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.address-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.address-actions .icon {
+  margin-left: 1rem;
+  cursor: pointer;
+  display: flex;
+  margin: 1rem;
+  color: #555;
+}
+
+.address-actions .icon:hover {
+  color: #000;
+}
+
+.section-title {
+  font-family: "Centaur";
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.support-text {
+  font-family: "Centaur";
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .customer-account {
+      padding: 2rem;
+  }
+
+  .grid__wrapper {
+      grid-template-columns: 1fr;
+  }
+
+  .account-sidebar, .account-orders {
+      margin: 0;
+  }
+
+  .addUser {
+      margin: 1.5rem auto 0 auto;
+  }
+}

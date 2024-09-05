@@ -33,6 +33,8 @@ import Contactus from './customerComponents/components/Contactus';
 import FAQ from './customerComponents/components/FAQ';
 import Cart from './customerComponents/components/Cart';
 import ProductPage from './customerComponents/components/ProductPage';
+import Account from './customerComponents/components/Account';
+import Payment from './customerComponents/components/Payment';
 
 
 function App() {
@@ -103,7 +105,8 @@ function App() {
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/ProductPage" element={<ProductPage/>}/>
         <Route path ="/Cart" element={<Cart/>}/>
-        {/* <Route path ='/Cart' element={<Cart/>}/> */}
+        <Route path ="/Account" element={<Account/>}/>
+        <Route path ="/Payment" element={<Payment/>}/>
         
 
       </Routes>
