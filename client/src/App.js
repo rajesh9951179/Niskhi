@@ -35,6 +35,7 @@ import Cart from './customerComponents/components/Cart';
 import ProductPage from './customerComponents/components/ProductPage';
 import Account from './customerComponents/components/Account';
 import Payment from './customerComponents/components/Payment';
+import MainHome from './mainComponents/MainHome';
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
     localStorage.setItem('isLoggedIn', true);
     navigate('/Home', { replace: true });
   };
+
   const handleAccountCreated = () => {
     navigate('/Login');
   };
@@ -63,16 +65,23 @@ function App() {
     return authPages.includes(location.pathname);
   };
 
+  const shouldShowNavBarAndFooter = () => {
+    return isLoggedIn && !isAuthPage() && location.pathname !== '/';
+  };
   return (
     <div>
-      {isLoggedIn && !isAuthPage() && (
-        <>
-          <NavBar fixed="top" /> 
-          <WhatsAppButton/>
-        </>
-      )}
+    {shouldShowNavBarAndFooter() && (
+      <>
+        <NavBar fixed="top" />
+        <WhatsAppButton />
+      </>
+    )}
       
       <Routes>
+      <Route path="/" element={<MainHome />} />
+        <Route path="/login/customer" element={<Login onLogin={() => console.log("Customer logged in")} />} />
+        <Route path="/login/admin" element={<Login onLogin={() => console.log("Admin logged in")} />} />
+        <Route path="/login/vendor" element={<Login onLogin={() => console.log("Vendor logged in")} />} />
       <Route path="/" element={isLoggedIn ? <Home /> : <Login onLogin={handleLogin} />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/NewArrivals" element={<NewArrivals />} />
