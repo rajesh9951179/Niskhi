@@ -1,8 +1,4 @@
 
-
-
-
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
@@ -55,7 +51,6 @@ function Createaccount() {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    // Validate field
     let error = '';
     switch (name) {
       case 'FirstName':
@@ -84,16 +79,13 @@ function Createaccount() {
       pswd: validatePassword(formData.pswd),
     };
     setErrors(newErrors);
-    // Check if there are any errors
     return !Object.values(newErrors).some(error => error);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate the entire form before submitting
     if (!validateForm()) {
-      // alert('Please fix the errors in the form before submitting.');
       return;
     }
 

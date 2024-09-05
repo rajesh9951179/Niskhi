@@ -92,6 +92,12 @@ const NavBar = () => {
               <LinkContainer to="/SpecialPrice">
                 <Nav.Link className="text-danger" onClick={handleToggleClose}>Special Price</Nav.Link>
               </LinkContainer>
+              <LinkContainer to="/Account">
+                <Nav.Link onClick={handleToggleClose}>Account</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/Payment">
+                <Nav.Link onClick={handleToggleClose}>Payment</Nav.Link>
+              </LinkContainer>
             </Nav>
 
             <Nav className="flex-column flex-md-row">
