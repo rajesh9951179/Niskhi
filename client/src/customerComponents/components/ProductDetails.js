@@ -1,158 +1,158 @@
-import React, { useState } from 'react'; 
-import { Row, Col, Button, Form, Modal, Table } from 'react-bootstrap';
-import Cart from './Cart'; 
-function ProductDetails() { 
-  const [selectedSize, setSelectedSize] = useState('S'); 
-  const [showChart, setShowChart] = useState(false); 
-  const [showCart, setShowCart] = useState(false);  
+import React, { useState } from "react";
+import "./ProductDetails.css";
+import img1 from '../images/img1.jpeg'; 
 
-  const sizes = ['S', 'M', 'L', 'XL', '2XL', '3XL']; 
+const ProductDetails = () => {
+  const [cartItems, setCartItems] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [selectedSize, setSelectedSize] = useState(""); 
 
-  const handleShowChart = () => setShowChart(true); 
-  const handleCloseChart = () => setShowChart(false); 
+  const addToCart = (product) => {
+    if (!selectedSize) {
+      alert("Please select a size");
+      return;
+    }
 
-  const handleAddToCart = () => setShowCart(true);  
-  const handleCloseCart = () => setShowCart(false); 
-    return (
-    <div>
-      <h2>DAKSH BANDI</h2> 
-      <p>SKU: BGMLM03-J</p>
-      <h4>Rs. 6,990.00</h4> 
-      <p>Tax included. Shipping calculated at checkout.</p>
-      
-      <Form>
-        <Form.Group as={Row} className="align-items-center">
-          <Col sm="12" md="2" className="text-md-start">
-            <Button 
-              variant="link" 
-              className="p-0 text-decoration-none" 
-              onClick={handleShowChart}
+    const productWithSize = { ...product, size: selectedSize }; 
+
+    const existingItem = cartItems.find(
+      (item) => item.id === productWithSize.id && item.size === selectedSize
+    );
+    if (existingItem) {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === productWithSize.id && item.size === selectedSize
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      setCartItems([...cartItems, productWithSize]);
+    }
+    setIsCartOpen(true); 
+  };
+
+  const closeCart = () => {
+    setIsCartOpen(false);
+  };
+
+  const handleIncrement = (id, size) => {
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === id && item.size === size
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  };
+
+  const handleDecrement = (id, size) => {
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === id && item.size === size
+          ? { ...item, quantity: Math.max(item.quantity - 1, 1) }
+          : item
+      )
+    );
+  };
+
+  const product = {
+    id: 1,
+    name: "Daksh Bandi",
+    price: 6990,
+    image: img1, 
+    quantity: 1,
+  };
+
+  const calculateTotal = () => {
+    return cartItems.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
+  };
+
+  return (
+    <div className="product-details">
+      {/* Product Details Section */}
+      <div className="product-info">
+        {/* <img src={product.image} alt={product.name} className="product-image" /> */}
+        <h2>{product.name}</h2>
+        <p>Rs. {product.price}</p>
+
+        <div className="size-selection">
+          <span>Select Size:</span>
+          {["S", "M", "L", "XL", "2XL", "3XL"].map((size) => (
+            <button
+              key={size}
+              className={selectedSize === size ? "active" : ""}
+              onClick={() => setSelectedSize(size)}
             >
-              <span role="img" aria-label="pencil">✏️</span> SizeChart
-            </Button>
-          </Col>
-          
-          <Col sm="12" md="10">
-            <div className="d-flex flex-wrap">
-              {sizes.map((size, index) => (
-                <Button
-                  key={index}
-                  variant={selectedSize === size ? 'dark' : 'outline-secondary'}
-                  className="m-1"
-                  onClick={() => setSelectedSize(size)}
-                >
-                  {size}
-                </Button>
-              ))}
-            </div>
-          </Col>
-        </Form.Group>
-      </Form>
-      
-      <Row className="mt-3">
-        <Col sm="6">
-          <Button variant="primary" className="w-100" onClick={handleAddToCart}>Add to Cart</Button> 
-        </Col>
-        <Col sm="6">
-          <Button variant="primary" className="w-100">Buy it Now</Button>
-        </Col>
-      </Row>
-      
-      <Modal show={showChart} onHide={handleCloseChart}>
-        <Modal.Header closeButton>
-          <Modal.Title>Size Chart</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>SIZE</th>
-                <th>S</th>
-                <th>M</th>
-                <th>L</th>
-                <th>XL</th>
-                <th>XXL</th>
-                <th>3XL</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>CHEST</td>
-                <td>91.4</td>
-                <td>96.5</td>
-                <td>102</td>
-                <td>107</td>
-                <td>112</td>
-                <td>117</td>
-              </tr>
-              <tr>
-                <td>SHOULDER</td>
-                <td>44.5</td>
-                <td>45.7</td>
-                <td>47</td>
-                <td>48.3</td>
-                <td>49.5</td>
-                <td>50.8</td>
-              </tr>
-              <tr>
-                <td>ARMHOLE</td>
-                <td>53.3</td>
-                <td>55.9</td>
-                <td>58.4</td>
-                <td>61</td>
-                <td>63.5</td>
-                <td>66</td>
-              </tr>
-              <tr>
-                <td>BICEP</td>
-                <td>31.1</td>
-                <td>33</td>
-                <td>34.9</td>
-                <td>36.8</td>
-                <td>38.7</td>
-                <td>40.6</td>
-              </tr>
-              <tr>
-                <td>WRIST</td>
-                <td>17.8</td>
-                <td>19.1</td>
-                <td>20.3</td>
-                <td>21.6</td>
-                <td>22.9</td>
-                <td>24.1</td>
-              </tr>
-              <tr>
-                <td>MID WAIST</td>
-                <td>86.4</td>
-                <td>91.4</td>
-                <td>96.5</td>
-                <td>102</td>
-                <td>107</td>
-                <td>112</td>
-              </tr>
-              <tr>
-                <td>HIP</td>
-                <td>96.5</td>
-                <td>102</td>
-                <td>107</td>
-                <td>112</td>
-                <td>117</td>
-                <td>122</td>
-              </tr>
-            </tbody>
-          </Table>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseChart}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+              {size}
+            </button>
+          ))}
+        </div>
 
-      {/* Conditionally render Cart component */}
-      {showCart && <Cart show={showCart} onClose={handleCloseCart} />}
+        <button className="add-to-cart-btn" onClick={() => addToCart(product)}>
+          Add to Cart
+        </button>
+        <button className="buy-now-btn">Buy it Now</button>
+      </div>
+
+      {/* Cart Sidebar */}
+      <div className={`cart-container ${isCartOpen ? "show" : ""}`}>
+        <div className="cart-content">
+          <h3>Your Cart</h3>
+          <button className="close-cart-button" onClick={closeCart}>
+  <i className="fas fa-times" /> 
+</button>
+
+          {/* Loop through cartItems and render them */}
+          {cartItems.length > 0 ? (
+            cartItems.map((item) => (
+              <div className="cart-item" key={`${item.id}-${item.size}`}>
+                <div className="cart-item-top"style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                  <img
+                  style={{
+                    width: '50%', 
+                    height: '50%', 
+                    borderRadius: 10, 
+                    objectFit: 'contain'
+                  }}
+                    className="cart-item-image"
+                    src={item.image}
+                    alt={item.name}
+                  />
+                </div>
+                <div className="cart-item-details">
+                  <h4>{item.name}</h4>
+                  <p>Size: {item.size}</p>
+                  <p>Price: Rs. {item.price}</p>
+
+                  <div className="quantity-control">
+                    <button onClick={() => handleDecrement(item.id, item.size)}>
+                      -
+                    </button>
+                    <span className="quantity">{item.quantity}</span>
+                    <button onClick={() => handleIncrement(item.id, item.size)}>
+                      +
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>Your cart is empty</p>
+          )}
+
+          {/* Footer with total and checkout button */}
+          <div className="cart-footer">
+            <p>Total: Rs. {calculateTotal()}</p>
+            <button className="checkout">Checkout</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default ProductDetails;
