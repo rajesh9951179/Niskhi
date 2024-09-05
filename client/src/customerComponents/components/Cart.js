@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import './Cart.css'; // Import your custom CSS for styling
+import './Cart.css'; 
 import img1 from '../images/img1.jpeg'; 
-import { Link } from 'react-bootstrap-icons';
+
 const Cart = ({ show, onClose }) => {
-  const [quantity, setQuantity] = useState(1); // Initial quantity set to 1
-  const itemPrice = 6990.00; // Price for one item
-  const subtotal = itemPrice * quantity; // Calculate subtotal based on quantity
+  const [quantity, setQuantity] = useState(1); 
+  const itemPrice = 6990.00; 
+  const subtotal = itemPrice * quantity
 
   const handleIncrement = () => {
     setQuantity(prevQuantity => prevQuantity + 1);

@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb+srv://ramganta778:balaji@cluster0.vhgpcgw.mongodb.net/amazon?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect('mongodb+srv://root:root@customer-db.w1e29.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
