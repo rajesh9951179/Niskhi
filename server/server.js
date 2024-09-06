@@ -1,29 +1,33 @@
-
-
-
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const User = require('./models/User'); 
+const User = require('./models/User');
 const Payment = require('./models/Payment');
+const bcrypt = require('bcryptjs'); // Assuming bcrypt for password comparison
 
 const app = express();
+
+// Middleware
 app.use(cors());
 app.use(bodyParser.json());
-mongoose.connect('mongodb+srv://root:root@customer-db.8vr1u.mongodb.net/', {
+
+// MongoDB Connection
+mongoose.connect('mongodb+srv://root:root@customer-db.8vr1u.mongodb.net/Customer', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 30000 
-}).then(() => {
-  console.log('Connected to MongoDB');
-}).catch((error) => {
-  console.error('Connection error', error);
-});
+  serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
+})
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Connection error', error);
+  });
 
-mongoose.set('debug', true);
+mongoose.set('debug', true); // Optional: Debug MongoDB queries
 
-
+// Create Account
 app.post('/api/createaccount', async (req, res) => {
   try {
     const { FirstName, LastName, email, password } = req.body;
@@ -39,12 +43,15 @@ app.post('/api/createaccount', async (req, res) => {
       return res.status(400).json({ message: 'User already exists' });
     }
 
+    // Hash the password before saving for security
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     // Create new user object
     const user = new User({
       FirstName,
       LastName,
       email,
-      password
+      password: hashedPassword
     });
 
     // Save the user to the database
@@ -53,16 +60,17 @@ app.post('/api/createaccount', async (req, res) => {
     // Respond with success message
     res.status(201).json({ message: 'Account created successfully' });
   } catch (error) {
-    console.error('Error in create account:', error); // Log the actual error to the console
+    console.error('Error in create account:', error);
 
     // Respond with a detailed error message
     res.status(500).json({
       message: 'Internal server error',
-      error: error.message || error // Send the error message to the client
+      error: error.message || error
     });
   }
 });
 
+// Fetch Latest Created Account
 app.get('/createaccountFromDB', async (req, res) => {
   try {
     const latestUser = await User.findOne().sort({ createdAt: -1 });
@@ -73,6 +81,7 @@ app.get('/createaccountFromDB', async (req, res) => {
   }
 });
 
+// Delete User
 app.delete('/deleteUser/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -84,10 +93,12 @@ app.delete('/deleteUser/:id', async (req, res) => {
   }
 });
 
+// Logout
 app.post('/logout', (req, res) => {
   res.status(200).json({ message: 'Logout successful' });
 });
 
+// Payment Route
 app.post('/api/payment', async (req, res) => {
   try {
     const paymentDetails = req.body;
@@ -100,15 +111,18 @@ app.post('/api/payment', async (req, res) => {
   }
 });
 
+// Login Route
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    // Find the user by email
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ message: 'Invalid email or password' });
     }
 
+    // Compare the password
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
       return res.status(400).json({ message: 'Invalid email or password' });
@@ -120,6 +134,7 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
+// Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
