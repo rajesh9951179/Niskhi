@@ -37,25 +37,52 @@ import Account from '../../customerComponents/components/Account';
 import Payment from '../../customerComponents/components/Payment';
 import MainHome from './MainHome';
 
-// const cardStyle = {
-//   textDecoration: 'none',
-//   color: 'black'
-// };
+
+
+function CustomerApp() {
+  
+const cardStyle = {
+  textDecoration: 'none',
+  color: 'black',
+  width: '300px',
+  height: '100px',
+  margin: '10px 0',
+  border: '2px solid #ddd',
+  borderRadius: '10px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+  transition: 'transform 0.2s',
+};
 
 const cardContentStyle = {
   textAlign: 'center',
-  padding: '20px'
 };
 
-function CustomerApp() {
   return (
-    <div>
-     <MainHome/>
-     </div>
+        <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '70vh', // Adjusted height to move boxes up
+        paddingTop: '50px', // Added padding to move content down
+      }}>
 
-    
-  );
+        <h1 style={{ marginBottom: '20px' }}>Choose Your Role</h1>
+        
+        <Link to="/login/customer" style={cardStyle}>
+          <div style={cardContentStyle}>
+            <h2>Customer</h2>
+          </div>
+        </Link>
+        </div>
+
+);
 }
+
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
