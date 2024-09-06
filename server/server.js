@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const User = require('./models/User');
 const Payment = require('./models/Payment');
-const bcrypt = require('bcryptjs'); // Assuming bcrypt for password comparison
 
 const app = express();
 
@@ -37,21 +36,12 @@ app.post('/api/createaccount', async (req, res) => {
       return res.status(400).json({ message: 'All fields are required' });
     }
 
-    // Check if the user already exists
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: 'User already exists' });
-    }
-
-    // Hash the password before saving for security
-    const hashedPassword = await bcrypt.hash(password, 10);
-
     // Create new user object
     const user = new User({
       FirstName,
       LastName,
       email,
-      password: hashedPassword
+      password
     });
 
     // Save the user to the database
