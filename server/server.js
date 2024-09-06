@@ -13,12 +13,17 @@ app.use(cors());
 app.use(bodyParser.json());
 mongoose.connect('mongodb+srv://root:root@customer-db.8vr1u.mongodb.net/', {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 30000 
 }).then(() => {
   console.log('Connected to MongoDB');
 }).catch((error) => {
   console.error('Connection error', error);
 });
+
+mongoose.set('debug', true);
+
+
 app.post('/api/createaccount', async (req, res) => {
   try {
     const { FirstName, LastName, email, password } = req.body;
@@ -115,7 +120,7 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5002;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
