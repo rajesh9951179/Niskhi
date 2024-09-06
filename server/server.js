@@ -11,8 +11,7 @@ const Payment = require('./models/Payment');
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-
-mongoose.connect('mongodb+srv://root:root@customer-db.w1e29.mongodb.net/', {
+mongoose.connect('mongodb+srv://root:root@customer-db.8vr1u.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
@@ -20,27 +19,42 @@ mongoose.connect('mongodb+srv://root:root@customer-db.w1e29.mongodb.net/', {
 }).catch((error) => {
   console.error('Connection error', error);
 });
-
 app.post('/api/createaccount', async (req, res) => {
   try {
-    const { FirstName, LastName, email, pswd } = req.body;
+    const { FirstName, LastName, email, password } = req.body;
 
+    // Validate if all fields are present
+    if (!FirstName || !LastName || !email || !password) {
+      return res.status(400).json({ message: 'All fields are required' });
+    }
+
+    // Check if the user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
     }
+
+    // Create new user object
     const user = new User({
       FirstName,
       LastName,
       email,
-      password: hashedPassword 
+      password
     });
 
+    // Save the user to the database
     await user.save();
 
+    // Respond with success message
     res.status(201).json({ message: 'Account created successfully' });
   } catch (error) {
-    res.status(500).json({ message: 'Fill The Form', error });
+    console.error('Error in create account:', error); // Log the actual error to the console
+
+    // Respond with a detailed error message
+    res.status(500).json({
+      message: 'Internal server error',
+      error: error.message || error // Send the error message to the client
+    });
   }
 });
 
