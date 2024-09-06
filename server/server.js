@@ -5,7 +5,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const bcrypt = require('bcrypt');
 const User = require('./models/User'); 
 const Payment = require('./models/Payment');
 
@@ -30,9 +29,6 @@ app.post('/api/createaccount', async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
     }
-
-    const hashedPassword = await bcrypt.hash(pswd, 10);
-
     const user = new User({
       FirstName,
       LastName,
