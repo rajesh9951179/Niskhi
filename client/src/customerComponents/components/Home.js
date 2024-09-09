@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import ProductPage from './ProductPage';
 // import slider_1 from '../images/slider_1.jpg';
 // import slider_2 from '../images/slider_2.jpg';
 // import slider_3 from '../images/slider_3.jpg';
@@ -119,7 +121,13 @@ function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  const navigate = useNavigate();
 
+  const handleCardClick = (productId) => {
+    // Navigate to ProductPage with an optional product ID (if needed)
+    navigate('/ProductPage');
+
+  };
   return (
     <div>
       {isLoggedIn ? (
@@ -225,13 +233,44 @@ function Home() {
       />
 
 <div className='programs'>
-        <Card image={card_1_1} title="Elegant Evening Gown" itemCount="50" />
-        <Card image={card_5_1} title="Cape Dress" itemCount="10" />
-        <Card image={card_2_1} title="Sapphire Serenity Dress" itemCount="30" />
-        <Card image={card_3_1} title="Radiant Red Dress" itemCount="20" />
-        <Card image={card_4_1} title="Opulent Silk Dress" itemCount="40" />
-        <Card image={card_6_1} title="Classic Wrap Dress" itemCount="15" />
-      </div>
+  <Card
+    image={card_1_1}
+    title="Elegant Evening Gown"
+    itemCount="50"
+    onClick={() => handleCardClick(1)} // Example ID
+  />
+  <Card
+    image={card_5_1}
+    title="Cape Dress"
+    itemCount="10"
+    onClick={() => handleCardClick(2)} // Example ID
+  />
+  <Card
+    image={card_2_1}
+    title="Sapphire Serenity Dress"
+    itemCount="30"
+    onClick={() => handleCardClick(3)} // Example ID
+  />
+  <Card
+    image={card_3_1}
+    title="Radiant Red Dress"
+    itemCount="20"
+    onClick={() => handleCardClick(4)} // Example ID
+  />
+  <Card
+    image={card_4_1}
+    title="Opulent Silk Dress"
+    itemCount="40"
+    onClick={() => handleCardClick(5)} // Example ID
+  />
+  <Card
+    image={card_6_1}
+    title="Classic Wrap Dress"
+    itemCount="15"
+    onClick={() => handleCardClick(6)} // Example ID
+  />
+</div>
+
 
       <VideoPlayer /> 
 
@@ -241,14 +280,53 @@ function Home() {
        names={['Chiffon Dress', 'Shirt', 'Jacket', 'Skirt', 'Hat', 'Shoes']}
        prices={['5000', '3000', '2000', '4000', '1000', '1500']}
       />      
- <div className='programs'>
+ {/* <div className='programs'>
         <Card image={card_1_2} title="Kameez Shalwar" itemCount="50" />
         <Card image={card_2_2} title="Bandhgala" itemCount="30" />
         <Card image={card_3_3} title="Bridal Ghagra Choli" itemCount="20" />
         <Card image={card_4_4} title="Bridal pattu Saree" itemCount="40" />
         <Card image={card_5_5} title="Salwar Kameez " itemCount="10" />
         <Card image={card_6_6} title="Gown" itemCount="15" />
-      </div>
+      </div> */}
+    
+    <div className='programs'>
+      <Card
+        image={card_1_2}
+        title="Kameez Shalwar"
+        itemCount="50"
+        onClick={() => handleCardClick(1)} // Example ID
+      />
+      <Card
+        image={card_2_2}
+        title="Bandhgala"
+        itemCount="30"
+        onClick={() => handleCardClick(2)} // Example ID
+      />
+      <Card
+        image={card_3_3}
+        title="Bridal Ghagra Choli"
+        itemCount="40"
+        onClick={() => handleCardClick(1)} // Example ID
+      />
+      <Card
+        image={card_4_4}
+        title="Bridal pattu Saree"
+        itemCount="10"
+        onClick={() => handleCardClick(2)} // Example ID
+      />
+       <Card
+        image={card_5_5}
+        title="Salwar Kameez"
+        itemCount="20"
+        onClick={() => handleCardClick(2)} // Example ID
+      />
+      <Card
+        image={card_6_6}
+        title="Gown"
+        itemCount="15"
+        onClick={() => handleCardClick(2)} // Example ID
+      />
+    </div>
 
       <GridsVideo 
       

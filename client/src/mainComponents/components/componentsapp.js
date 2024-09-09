@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import NavBar from '../../customerComponents/components/Navbar';
 import Footer from '../../customerComponents/components/footer';
 import Home from '../../customerComponents/components/Home';
@@ -33,67 +33,23 @@ import Contactus from '../../customerComponents/components/Contactus';
 import FAQ from '../../customerComponents/components/FAQ';
 import Cart from '../../customerComponents/components/Cart';
 import ProductPage from '../../customerComponents/components/ProductPage';
-import Account from '../../customerComponents/components/Account';
+ import Account from '../../customerComponents/components/Account';
 import Payment from '../../customerComponents/components/Payment';
-import MainHome from './MainHome';
+import Chooserole from './Chooserole';
 
-
-
-function CustomerApp() {
-  
-const cardStyle = {
-  textDecoration: 'none',
-  color: 'black',
-  width: '300px',
-  height: '100px',
-  margin: '10px 0',
-  border: '2px solid #ddd',
-  borderRadius: '10px',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
-  transition: 'transform 0.2s',
-};
-
-const cardContentStyle = {
-  textAlign: 'center',
-};
-
-  return (
-        <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '70vh', // Adjusted height to move boxes up
-        paddingTop: '50px', // Added padding to move content down
-      }}>
-
-        <h1 style={{ marginBottom: '20px' }}>Choose Your Role</h1>
-        
-        <Link to="/login/customer" style={cardStyle}>
-          <div style={cardContentStyle}>
-            <h2>Customer</h2>
-          </div>
-        </Link>
-        </div>
-
-);
-}
-
-
-function App() {
+const Componentsapp = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     const userLoggedIn = localStorage.getItem('isLoggedIn');
-    if (userLoggedIn && location.pathname !== '/') {
+    if (!userLoggedIn) {
+      navigate('/Login');
+    } else {
       setIsLoggedIn(true);
     }
-  }, [location.pathname]);
+  }, [navigate]);
 
   const handleLogin = () => {
     setIsLoggedIn(true);
@@ -111,22 +67,23 @@ function App() {
   };
 
   const shouldShowNavBarAndFooter = () => {
-    return isLoggedIn && !isAuthPage() && location.pathname !== '/';
+    return isLoggedIn && !isAuthPage();
   };
 
   return (
     <div>
       {shouldShowNavBarAndFooter() && (
         <>
-          <NavBar />
+          <NavBar fixed="top" />
           <WhatsAppButton />
         </>
       )}
 
       <Routes>
-        <Route path="/" element={<CustomerApp />} />
-        <Route path="/login/customer" element={<Login onLogin={handleLogin} />} />
-        <Route path="/Home" element={isLoggedIn ? <Home /> : <Login onLogin={handleLogin} />} />
+        <Route path="/login/customer" element={<Login onLogin={() => console.log("Customer logged in")} />} />
+        <Route path="/login/admin" element={<Login onLogin={() => console.log("Admin logged in")} />} />
+        <Route path="/login/vendor" element={<Login onLogin={() => console.log("Vendor logged in")} />} />
+        <Route path="/Home" exact element={<Home />} />
         <Route path="/NewArrivals" element={<NewArrivals />} />
         <Route path="/BestSeller" element={<BestSeller />} />
         <Route path="/Women" element={<Women />} />
@@ -157,18 +114,12 @@ function App() {
         <Route path="/ProductPage" element={<ProductPage />} />
         <Route path="/Cart" element={<Cart />} />
         <Route path="/Account" element={<Account />} />
-        <Route path="/Payment" element={<Payment />} />
+         <Route path="/Payment" element={<Payment />} /> 
       </Routes>
 
-      {isLoggedIn && !isAuthPage() && <Footer />}
+      {shouldShowNavBarAndFooter() && <Footer />}
     </div>
   );
-}
+};
 
-export default function AppWrapper() {
-  return (
-    <Router>
-      <App />
-    </Router>
-  );
-}
+export default Componentsapp;

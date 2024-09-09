@@ -7,6 +7,7 @@ import googleLogo from '../images/Googlelogo.jpg';
 import axios from 'axios'; // Add axios for HTTP requests
 
 function Login({ onLogin }) {
+  console.log('Login component rendered'); 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); 
