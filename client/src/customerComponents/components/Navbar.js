@@ -22,7 +22,7 @@ const NavBar = () => {
 
       <Navbar expand="lg" className="navi py-1" expanded={expanded} onToggle={setExpanded}>
         <Container fluid>
-          <Navbar.Brand as={Link} to="/Home" className="d-flex align-items-center">
+          <Navbar.Brand as={Link} to="/home" className="d-flex align-items-center">
             <img
               src={logoMain}
               height="60"
@@ -44,73 +44,73 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="navbar-nav" onClick={() => setExpanded(!expanded)} />
           <Navbar.Collapse id="navbar-nav" className="justify-content-between">
             <Nav className="flex-column flex-md-row mx-auto">
-              <LinkContainer to="/NewArrivals">
+              <LinkContainer to="/newarrivals">
                 <Nav.Link onClick={handleToggleClose}>New Arrivals</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/BestSeller">
+              <LinkContainer to="/bestseller">
                 <Nav.Link onClick={handleToggleClose}>Bestseller</Nav.Link>
               </LinkContainer>
-              <NavDropdown title="Women" id="women-dropdown">
-                <LinkContainer to="/Anarkali">
+              <NavDropdown title="women" id="women-dropdown">
+                <LinkContainer to="/anarkali">
                   <NavDropdown.Item onClick={handleToggleClose}>Anarkali</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/Lehenga">
+                <LinkContainer to="/lehenga">
                   <NavDropdown.Item onClick={handleToggleClose}>Lehenga</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/Sarees">
+                <LinkContainer to="/sarees">
                   <NavDropdown.Item onClick={handleToggleClose}>Sarees</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/Dresses">
+                <LinkContainer to="/dresses">
                   <NavDropdown.Item onClick={handleToggleClose}>Dresses</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
-              <NavDropdown title="Men" id="men-dropdown">
-                <LinkContainer to="/Shirts">
+              <NavDropdown title="men" id="men-dropdown">
+                <LinkContainer to="/shirts">
                   <NavDropdown.Item onClick={handleToggleClose}>Shirts</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/KurtaSet">
+                <LinkContainer to="/kurtaset">
                   <NavDropdown.Item onClick={handleToggleClose}>Kurta Set</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/Jackets">
+                <LinkContainer to="/jackets">
                   <NavDropdown.Item onClick={handleToggleClose}>Jackets</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
-              <NavDropdown title="Kids" id="kids-dropdown">
-              <LinkContainer to="/LehengaKids">
+              <NavDropdown title="kids" id="kids-dropdown">
+              <LinkContainer to="/lehengakids">
                   <NavDropdown.Item onClick={handleToggleClose}>Lehenga Kids</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/GhararaSets">
+                <LinkContainer to="/ghararasets">
                   <NavDropdown.Item onClick={handleToggleClose}>Gharara Sets</NavDropdown.Item>
                 </LinkContainer>
-                <LinkContainer to="/KidsDresses">
+                <LinkContainer to="/kidsdresses">
                   <NavDropdown.Item onClick={handleToggleClose}>Kids Dresses</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
-              <LinkContainer to="/ReadyToShip">
+              <LinkContainer to="/readytoship">
                 <Nav.Link onClick={handleToggleClose}>Ready to Ship</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/SpecialPrice">
+              <LinkContainer to="/specialprice">
                 <Nav.Link className="text-danger" onClick={handleToggleClose}>Special Price</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/Account">
+              <LinkContainer to="/account">
                 <Nav.Link onClick={handleToggleClose}>Account</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/Payment">
+              {/* <LinkContainer to="/payment">
                 <Nav.Link onClick={handleToggleClose}>Payment</Nav.Link>
-              </LinkContainer>
+              </LinkContainer> */}
             </Nav>
 
             <Nav className="flex-column flex-md-row">
-              <LinkContainer to="/SlideoutSearchbox">
+              <LinkContainer to="/slideoutsearchbox">
                 <Nav.Link onClick={handleToggleClose}><FaSearch /></Nav.Link>
               </LinkContainer>
               <LinkContainer to="/wishlist">
                 <Nav.Link onClick={handleToggleClose}><FaHeart /></Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/Login">
+              <LinkContainer to="/login">
                 <Nav.Link onClick={handleToggleClose}><FaUser /></Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/Cart">
+              <LinkContainer to="/cart">
                 <Nav.Link onClick={handleToggleClose}>
                   <FaShoppingBag />
                   <span className="badge rounded-circle translate-middle bg-danger text-white p-0" style={{ fontSize: '12px' }}>0</span>

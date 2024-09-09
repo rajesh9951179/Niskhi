@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import "./ProductDetails.css";
 import img1 from '../images/img1.jpeg'; 
+import { useNavigate } from 'react-router-dom';
 
 const ProductDetails = () => {
+  const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [selectedSize, setSelectedSize] = useState(""); 
+  const handleCheckout = () => {
+    navigate('/Payment'); 
+  };
+  const handleBuyNowClick = () => {
+    navigate('/Payment'); 
+  };
 
   const addToCart = (product) => {
     if (!selectedSize) {
@@ -95,7 +103,9 @@ const ProductDetails = () => {
         <button className="add-to-cart-btn" onClick={() => addToCart(product)}>
           Add to Cart
         </button>
-        <button className="buy-now-btn">Buy it Now</button>
+        <button className="buy-now-btn" onClick={handleBuyNowClick}>
+      Buy it Now
+    </button>
       </div>
 
       {/* Cart Sidebar */}
@@ -146,9 +156,11 @@ const ProductDetails = () => {
 
           {/* Footer with total and checkout button */}
           <div className="cart-footer">
-            <p>Total: Rs. {calculateTotal()}</p>
-            <button className="checkout">Checkout</button>
-          </div>
+        <p>Total: Rs. {calculateTotal()}</p>
+        <button className="checkout" onClick={handleCheckout}>
+          Checkout
+        </button>
+      </div>
         </div>
       </div>
     </div>
