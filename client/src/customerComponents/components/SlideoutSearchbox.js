@@ -39,9 +39,9 @@ const SlideoutSearchbox = () => {
           }}></div>
           {/* Items below the search bar */}
           <ul className="list-unstyled">
-            <li className="pb-2"><a href="/pages/about-us" className="text-decoration-none" style={{ color: 'inherit' }}>About Us</a></li>
-            <li className="pb-2"><a href="/pages/contact-us" className="text-decoration-none" style={{ color: 'inherit' }}>Contact Us</a></li>
-            <li className="pb-2"><a href="/pages/faqs" className="text-decoration-none" style={{ color: 'inherit' }}>FAQ's</a></li>
+            <li className="pb-2"><a href="/AboutUs" className="text-decoration-none" style={{ color: 'inherit' }}>About Us</a></li>
+            <li className="pb-2"><a href="/Contactus" className="text-decoration-none" style={{ color: 'inherit' }}>Contact Us</a></li>
+            <li className="pb-2"><a href="/FAQ" className="text-decoration-none" style={{ color: 'inherit' }}>FAQ's</a></li>
             <li className="pb-2"><a href="/pages/privacy-cookie-policies" className="text-decoration-none" style={{ color: 'inherit' }}>Privacy & Cookie Policies</a></li>
             <li className="pb-2"><a href="/pages/shipping-return-policies" className="text-decoration-none" style={{ color: 'inherit' }}>Shipping and Return Policies</a></li>
             <li className="pb-2"><a href="/pages/terms-conditions" className="text-decoration-none" style={{ color: 'inherit' }}>Terms & Conditions</a></li>
