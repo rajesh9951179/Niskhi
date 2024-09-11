@@ -46,10 +46,10 @@ const CategorySection = () => {
         style={{ whiteSpace: 'nowrap', flexWrap: 'nowrap' }}
       >
         <Col xs="auto" className="d-inline-flex align-items-center">
-          <CategoryCard image={categorywomen} label="Women" selected link="/womenswear" />
-          <CategoryCard image={categorymen} label="Men" link="/menswear" />
-          <CategoryCard image={categorychild} label="Kids" link="/kidswear" />
-          <CategoryCard image={categoryaccesories} label="Accessories" link="/accessories" />
+          <CategoryCard image={categorywomen} label="Women" selected link="/bestseller" />
+          <CategoryCard image={categorymen} label="Men" link="/bestseller" />
+          <CategoryCard image={categorychild} label="Kids" link="/bestseller" />
+          <CategoryCard image={categoryaccesories} label="Accessories" link="/bestseller" />
         </Col>
       </Row>
     </Container>
