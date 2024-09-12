@@ -13,21 +13,27 @@ function Login({ onLogin }) {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
-  const handleSignIn = async () => {
+  const handleSignUp = async () => {
+    navigate('/Home');
+
+    if (!email || !password) {
+      console.error('Email and password are required');
+      
+      return;
+    }
+  
     try {
-      const response = await axios.post('http://localhost:5002/api/login', { email, password });
+      const response = await axios.post('http://localhost:5000/api/Login', { email, password });
+      console.log('Response:', response);
       if (response.status === 200) {
-        localStorage.setItem('token', response.data.token); // Save token to localStorage
         navigate('/Home');
-        if (onLogin) onLogin();
-      } else {
-        alert('Invalid email or password');
       }
     } catch (error) {
-      alert('Login failed: Invalid email or password');
-      console.error('Error logging in:', error.response?.data?.message || error.message);
+      console.error('Error creating account:', error.response?.data?.message || error.message);
     }
   };
+  
+  
 
   const handleGoogleSignIn = async () => {
     try {
@@ -56,7 +62,7 @@ function Login({ onLogin }) {
           <a href="/forgot-password" style={{ textAlign: 'left', textDecoration: 'none', color: 'black' }}>Forgot your password?</a>
         </div>
         <div style={{ display: 'flex', justifyContent: 'flex-start', marginBottom: '1rem' }}>
-          <Button style={{ width: '100px', height: '50px', fontSize: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#c8a59d', color: 'white', border: 'none', marginRight: '0.25rem', borderRadius: '0', fontFamily: '"Times New Roman", Times, serif' }} onClick={handleSignIn}>
+          <Button style={{ width: '100px', height: '50px', fontSize: '1rem', display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#c8a59d', color: 'white', border: 'none', marginRight: '0.25rem', borderRadius: '0', fontFamily: '"Times New Roman", Times, serif' }} onClick={handleSignUp}>
             SIGN IN
           </Button>
           <Link to="/Createaccount">
